@@ -1,9 +1,9 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { StyledButtons } from '../StyledButtons/StyledBtn'
+import { FaUser } from "react-icons/fa";
 
 function NavScrollExample() {
     return (
@@ -19,26 +19,19 @@ function NavScrollExample() {
                     >
                         <Nav.Link href="#action1">Home</Nav.Link>
                         <Nav.Link href="#action2">Coming Soon</Nav.Link>
-                        <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Drama</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
-                                Action
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">
-                                Logout
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                        <Nav.Link href="#action2">This Month</Nav.Link>
+
 
                     </Nav>
                     <Form className="d-flex">
+                        {/* <Nav.Link href="#action2"><FaUser className='fs-3 me-5 mt-2 text-dark' /></Nav.Link> */}
                         <Form.Control
                             type="search"
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <StyledButtons>Search</StyledButtons>
                     </Form>
                 </Navbar.Collapse>
             </Container>

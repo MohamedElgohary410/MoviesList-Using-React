@@ -1,72 +1,146 @@
 /* ===============Global styles================ */
-
+:root {
+  --primary-gradient: linear-gradient(90deg, #e8f0ff, #d1f2eb);
+  /* Gradient for background */
+  --navbar-gradient: linear-gradient(90deg, #dcc7ff, #ffe4e1);
+  /* Gradient for navbar */
+  --footer-gradient: linear-gradient(45deg, #d1f2eb, #dcc7ff);
+  /* Gradient for footer */
+  --sold-gradient: linear-gradient(45deg, #e0e0e0, #bdbdbd);
+  /* Gray gradient for sold card */
+  --font-color: #333;
+  /* Dark gray for readability */
+  --highlight-color: #FF6F61;
+  /* Coral for highlights */
+  --hover-scale: 1.05;
+  --animation-duration: 0.6s;
+  --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
 
 /* ===============Body================ */
 .Container {
-  background-color: #C4D9FF;
+  background: var(--primary-gradient);
   padding: 0;
   font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  color: var(--font-color);
+  transition: background var(--animation-duration) ease-in-out;
 }
 
 /* ===============Navbar================ */
 .Mynavbar {
-  background-color: #C4D9FF;
-  font-size: 24px;
+  background: var(--navbar-gradient);
+  font-size: large;
+  padding: 10px 20px;
+  box-shadow: var(--shadow-light);
+  transition: background var(--animation-duration), transform var(--animation-duration);
+}
+
+.Mynavbar:hover {
+  transform: translateY(-5px);
+  background: var(--primary-gradient);
+}
+
+/* =============== Card ================ */
+.card {
+  width: 21rem;
+  padding: 20px;
+  margin: 20px;
+  background: var(--navbar-gradient);
+  border-radius: 15px;
+  box-shadow: var(--shadow-light);
+  transition: transform var(--animation-duration), box-shadow var(--animation-duration);
+}
+
+.card:hover {
+  transform: scale(var(--hover-scale));
+  box-shadow: var(--shadow-heavy);
 }
 
 /* ===============Slider Image================ */
 .imgSlider {
   width: 100%;
-  height: 60VH;
+  height: 60vh;
+  /* Ensures proper viewport height */
   object-fit: cover;
+  /* Keeps the image aspect ratio intact while filling the container */
+  transition: transform var(--animation-duration), filter var(--animation-duration);
+}
+
+.imgSlider:hover {
+  transform: scale(1.03);
+  filter: brightness(1.15);
 }
 
 /* =============== Card image ================ */
 .imgCard {
   width: 100%;
   height: 250px;
+  /* Fixed height for consistent card layout */
   object-fit: cover;
+  /* Prevents distortion of images */
   border-radius: 10px;
+  transition: transform var(--animation-duration), filter var(--animation-duration);
 }
 
-/* =============== Card ================ */
-.card {
-  width: 21rem;
-  padding: 10px;
-  margin: 20px;
-  background-color: #C5BAFF;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.imgCard:hover {
+  transform: scale(var(--hover-scale));
+  filter: brightness(1.2);
 }
 
-.card:hover {
-  transform: scale(1.05);
-  transition: transform 0.5s;
-}
-
-/* =============== warning text ================ */
+/* =============== Warning text ================ */
 .warning {
-  color: #000;
+  color: var(--highlight-color);
   font-weight: bold;
-  border: 1px solid #f00;
+  padding: 5px;
+  border-radius: 5px;
+  border: 4px solid;
+  border-image: linear-gradient(90deg, #ff6f61, #ffc1c1);
+  border-image-slice: 1;
+  animation: border-glow 2s infinite linear;
+}
+
+@keyframes border-glow {
+  0% {
+    border-image-source: linear-gradient(90deg, #ff6f61, #ffc1c1);
+  }
+
+  50% {
+    border-image-source: linear-gradient(90deg, #ffc1c1, #ff6f61);
+  }
+
+  100% {
+    border-image-source: linear-gradient(90deg, #ff6f61, #ffc1c1);
+  }
 }
 
 /*==================Sold card=================*/
 .sold {
-  background-color: #FFC0CB;
-  color: #000;
+  background: var(--sold-gradient);
+  color: var(--font-color);
   font-weight: bold;
-  border: 1px solid #f00;
+  border: 2px solid #999;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: var(--shadow-light);
 }
 
-/*==================footer=================*/
+/*==================Footer=================*/
 footer {
-  background-color: #E8F9FF;
-  padding: 10px;
+  background: var(--footer-gradient);
+  padding: 15px;
   text-align: center;
   position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
-  color: #000;
+  color: var(--font-color);
+  box-shadow: var(--shadow-light);
+  transition: background var(--animation-duration), transform var(--animation-duration);
+}
+
+footer:hover {
+  transform: scale(var(--hover-scale));
+  background: var(--navbar-gradient);
 }
