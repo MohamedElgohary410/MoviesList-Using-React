@@ -165,6 +165,7 @@ export default function App() {
       <ControlledCarousel />
       <ButtonCategories setCategory={setCategory} />
       {testing}
+
       <footer className='text-center text-dark'>All rights reserved</footer>
     </section>
   )
